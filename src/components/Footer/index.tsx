@@ -1,11 +1,11 @@
 import { View, Text } from "react-native"
 import { styles } from "./styles"
 
-export const Header = () => {
+export const Footer = () => {
 
   return (
     <View style={styles.boxTexto}>
-      <Text style={styles.textoHeader}>Calculadora IMC</Text>
+      <Text style={styles.textoFooter}>by Ademar Junior</Text>
     </View>
   )
 }

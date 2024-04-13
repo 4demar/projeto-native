@@ -1,6 +1,7 @@
 import { useState } from "react"
-import { View, Text, TextInput, Button } from "react-native"
+import { View, Text, TextInput, Button, TouchableOpacity } from "react-native"
 import { Titulo } from "../Titulo"
+import { styles } from "../../styles/stylesGlobal"
 
 export function CalculoImc() {
   const [altura, setAltura] = useState("")
@@ -38,29 +39,37 @@ export function CalculoImc() {
   }
 
   return (
-    <View>
-      <View>
-        <Text>Altura</Text>
+    <View style={styles.boxContent}>
+      <View style={styles.form}>
+        <Text style={styles.formLabel}>Altura</Text>
         <TextInput
+          style={styles.formInputText}
           placeholder="Digite sua altura: Ex. 1.80"
           keyboardType="numeric"
           onChangeText={setAltura}
           value={altura}
         />
-        <Text>Peso</Text>
+        <Text style={styles.formLabel}>Peso</Text>
         <TextInput
+          style={styles.formInputText}
           placeholder="Digite seu peso: Ex. 78:"
           keyboardType="numeric"
           onChangeText={setPeso}
           value={peso}
         />
-        <Button
+        <TouchableOpacity
+          style={styles.formButton}
+          onPress={CalcularImc}
+        >
+          <Text style={styles.textButton}>{textoBotao}</Text>
+        </TouchableOpacity>
+        {/* <Button
           title={textoBotao}
           onPress={CalcularImc}
-        />
+        /> */}
       </View>
-      <Titulo texto={mensagem} />
-      <Titulo texto={imc} />
+      <Titulo texto={mensagem} style={styles.textoMensagem} />
+      <Titulo texto={imc} style={styles.textoTitulo} />
     </View>
   )
 }
